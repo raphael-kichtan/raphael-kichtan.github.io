@@ -1,11 +1,12 @@
 
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raphael Kichtan – Projekte & Forschung</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Raphael Kichtan – Projekte &amp; Forschung</title>
+<style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -118,38 +119,31 @@
   </style>
 </head>
 <body>
-
-  <div class="toggle-container">
-    <span id="theme-icon">☀️</span>
-    <button onclick="toggleMode()">Mode</button>
-    <button onclick="switchLang('de')" id="btn-de" class="active">DE</button>
-    <button onclick="switchLang('en')" id="btn-en">EN</button>
-  </div>
-
-  <header>
-    <h1>Raphael Kichtan</h1>
-    <p>Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.</p>
-  </header>
-
-  <nav>
-    <a href="index.html" class="active" data-de="Startseite" data-en="Home">Startseite</a>
-    <a href="about.html" data-de="Über mich" data-en="About me">Über mich</a>
-    <a href="veroeffentlichungen.html" data-de="Veröffentlichungen" data-en="Publications">Veröffentlichungen</a>
-  </nav>
-
-  <div class="main">
-    <p id="menuText" data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren."
-       data-en="Use the menu above to learn more about me and my work.">
+<div class="toggle-container">
+<span id="theme-icon">☀️</span>
+<button onclick="toggleMode()">Mode</button>
+<button class="active" id="btn-de" onclick="switchLang('de')">DE</button>
+<button id="btn-en" onclick="switchLang('en')">EN</button>
+</div>
+<header>
+<h1>Raphael Kichtan</h1>
+<p>Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.</p>
+</header>
+<nav>
+<a class="active" data-de="Startseite" data-en="Home" href="index.html">Startseite</a>
+<a data-de="Über mich" data-en="About me" href="about.html">Über mich</a>
+<a data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
+</nav>
+<div class="main">
+<p data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren." data-en="Use the menu above to learn more about me and my work." id="menuText">
        Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.
     </p>
-    <img src="einleitungsbild.jpg" alt="Einleitungsbild" class="parallax-image" />
-  </div>
-
-  <footer>
-    &copy; 2025 Raphael Kichtan
+<img alt="Einleitungsbild" class="parallax-image" src="einleitungsbild.jpg"/>
+</div>
+<footer>
+    © 2025 Raphael Kichtan
   </footer>
-
-  <script>
+<script>
     window.addEventListener('DOMContentLoaded', () => {
       const icon = document.getElementById('theme-icon');
       icon.textContent = document.body.classList.contains('dark') ? "🌙" : "☀️";
@@ -179,6 +173,5 @@
       }
     });
   </script>
-
 </body>
 </html>
