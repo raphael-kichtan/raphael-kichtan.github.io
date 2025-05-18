@@ -138,27 +138,46 @@
 <footer>
     © 2025 Raphael Kichtan
   </footer>
+
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const icon = document.getElementById('theme-icon');
-      icon.textContent = document.body.classList.contains('dark') ? "🌙" : "☀️";
-    });
+window.addEventListener('DOMContentLoaded', () => {
+  const theme = localStorage.getItem('theme') || 'light';
+  const lang = localStorage.getItem('lang') || 'de';
 
-    function toggleMode() {
-      document.body.classList.toggle('dark');
-      const icon = document.getElementById('theme-icon');
-      icon.textContent = document.body.classList.contains('dark') ? "🌙" : "☀️";
-      icon.style.transform = 'scale(1.15)';
-      setTimeout(() => { icon.style.transform = 'scale(1)'; }, 200);
-    }
+  if (theme === 'dark') {
+    document.body.classList.add('dark');
+    const icon = document.getElementById('theme-icon');
+    if (icon) icon.textContent = "🌙";
+  } else {
+    const icon = document.getElementById('theme-icon');
+    if (icon) icon.textContent = "☀️";
+  }
 
-    function switchLang(lang) {
-      document.querySelectorAll('[data-de], [data-en]').forEach(el => {
-        el.innerHTML = el.getAttribute('data-' + lang);
-      });
-      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    }
-  </script>
-</body>
+  switchLang(lang);
+});
+
+function toggleMode() {
+  const isDark = document.body.classList.toggle('dark');
+  const icon = document.getElementById('theme-icon');
+  if (icon) {
+    icon.textContent = isDark ? "🌙" : "☀️";
+    icon.style.transform = 'scale(1.15)';
+    setTimeout(() => { icon.style.transform = 'scale(1)'; }, 200);
+  }
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+function switchLang(lang) {
+  document.querySelectorAll('[data-de], [data-en]').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang);
+  });
+  const deBtn = document.getElementById('btn-de');
+  const enBtn = document.getElementById('btn-en');
+  if (deBtn && enBtn) {
+    deBtn.classList.toggle('active', lang === 'de');
+    enBtn.classList.toggle('active', lang === 'en');
+  }
+  localStorage.setItem('lang', lang);
+}
+</script></body>
 </html>
