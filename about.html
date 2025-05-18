@@ -140,38 +140,42 @@
 <footer>
     © 2025 Raphael Kichtan
   </footer>
-
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const theme = localStorage.getItem('theme') || 'light';
-      const lang = localStorage.getItem('lang') || 'de';
+  window.addEventListener('DOMContentLoaded', () => {
+    const theme = localStorage.getItem('theme') || 'light';
+    const lang = localStorage.getItem('lang') || 'de';
 
-      if (theme === 'dark') {
-        document.body.classList.add('dark');
-        document.getElementById('theme-icon').textContent = "🌙";
-      } else {
-        document.getElementById('theme-icon').textContent = "☀️";
-      }
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+      document.getElementById('theme-icon').textContent = "🌙";
+    } else {
+      document.body.classList.remove('dark');
+      document.getElementById('theme-icon').textContent = "☀️";
+    }
 
-      switchLang(lang);
+    switchLang(lang);
+  });
+
+  function toggleMode() {
+    const isDark = document.body.classList.toggle('dark');
+    const icon = document.getElementById('theme-icon');
+    icon.textContent = isDark ? "🌙" : "☀️";
+    icon.style.transform = 'scale(1.15)';
+    setTimeout(() => { icon.style.transform = 'scale(1)'; }, 200);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  function switchLang(lang) {
+    document.querySelectorAll('[data-de], [data-en]').forEach(el => {
+      el.innerHTML = el.getAttribute('data-' + lang);
     });
-
-    function toggleMode() {
-      const isDark = document.body.classList.toggle('dark');
-      const icon = document.getElementById('theme-icon');
-      icon.textContent = isDark ? "🌙" : "☀️";
-      icon.style.transform = 'scale(1.15)';
-      setTimeout(() => { icon.style.transform = 'scale(1)'; }, 200);
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    const deBtn = document.getElementById('btn-de');
+    const enBtn = document.getElementById('btn-en');
+    if (deBtn && enBtn) {
+      deBtn.classList.toggle('active', lang === 'de');
+      enBtn.classList.toggle('active', lang === 'en');
     }
-
-    function switchLang(lang) {
-      document.querySelectorAll('[data-de], [data-en]').forEach(el => {
-        el.innerHTML = el.getAttribute('data-' + lang);
-      });
-      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      localStorage.setItem('lang', lang);
-    }
-    </script></body>
+    localStorage.setItem('lang', lang);
+  }
+</script></body>
 </html>
