@@ -1,11 +1,12 @@
 
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Raphael Kichtan – Projekte & Forschung</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
+<meta charset="utf-8"/>
+<title>Raphael Kichtan – Projekte &amp; Forschung</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -125,44 +126,30 @@
   </style>
 </head>
 <body>
-
-  <div class="toggle-container">
-    <span id="theme-icon">☀️</span>
-    <button onclick="toggleMode()">Mode</button>
-    <button onclick="switchLang('de')" id="btn-de" class="active">DE</button>
-    <button onclick="switchLang('en')" id="btn-en">EN</button>
-  </div>
-
-  <header>
-    <h1 data-de="Raphael Kichtan" data-en="Raphael Kichtan">Raphael Kichtan</h1>
-    <p id="subtitle"
-      data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind."
-      data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me.">
+<div class="toggle-container">
+<span id="theme-icon">☀️</span>
+<button onclick="toggleMode()">Mode</button>
+<button class="active" id="btn-de" onclick="switchLang('de')">DE</button>
+<button id="btn-en" onclick="switchLang('en')">EN</button>
+</div>
+<header>
+<h1 data-de="Raphael Kichtan" data-en="Raphael Kichtan">Raphael Kichtan</h1>
+<p data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind." data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me." id="subtitle">
       Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.
     </p>
-  </header>
-
-  <nav>
-    <a href="index.html" class="active" data-de="Startseite" data-en="Home">Startseite</a>
-    <a href="about.html" data-de="Über mich" data-en="About me">Über mich</a>
-    <a href="veroeffentlichungen.html" data-de="Veröffentlichungen" data-en="Publications">Veröffentlichungen</a>
-  </nav>
-
-  <div class="main">
-    <p data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren."
-       data-en="Use the menu above to learn more about me and my work.">
-       Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.
-    </p>
-    <img src="https://images.unsplash.com/photo-1610472359960-95b3feec2b86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-         alt="Wissenschaftlich inspiriertes Begrüßungsbild"
-         class="hero-img" />
-  </div>
-
-  <footer>
-    &copy; 2025 Raphael Kichtan
+</header>
+<nav>
+<a class="active" data-de="Startseite" data-en="Home" href="index.html">Startseite</a>
+<a data-de="Über mich" data-en="About me" href="about.html">Über mich</a>
+<a data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
+</nav>
+<div class="main">
+<br/>
+<img alt="Einleitungsbild" src="einleitungsbild.jpg" style="max-width:100%; border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.3); margin-top:2rem;"/></div>
+<footer>
+    © 2025 Raphael Kichtan
   </footer>
-
-  <script>
+<script>
     window.addEventListener('DOMContentLoaded', () => {
       const icon = document.getElementById('theme-icon');
       if (document.body.classList.contains('dark')) {
@@ -186,6 +173,5 @@
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     }
   </script>
-
 </body>
 </html>
