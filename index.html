@@ -3,32 +3,152 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Raphael Kichtan – Yang-Mills and Spatial Response</title>
+    <title>Raphael Kichtan – Research & Publications</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; background-color: #f4f4f4; color: #333; }
-        h1 { color: #2c3e50; }
-        a { color: #2980b9; text-decoration: none; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            color: #333;
+        }
+        header {
+            background: #1a2a40;
+            color: white;
+            padding: 40px 0 20px 0;
+            text-align: center;
+        }
+        header img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 15px;
+        }
+        header h1 {
+            margin: 10px 0 5px 0;
+            font-size: 2.2em;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #ccc;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        h2 {
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 5px;
+            color: #2980b9;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 12px;
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            margin: 60px 0 20px 0;
+        }
+        .language-toggle {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
+        button {
+            margin: 0 5px;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2980b9;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1f6694;
+        }
     </style>
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-content').forEach(div => {
+                div.classList.remove('active');
+            });
+            document.getElementById(lang).classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Raphael Kichtan – Yang-Mills and Spatial Response</h1>
-        <p>This site presents the scientific work of <strong>Raphael Kichtan</strong> on the Yang-Mills existence and mass gap problem.</p>
 
-        <h2>Published Work</h2>
+<header>
+    <img src="profile.jpg" alt="Raphael Kichtan">
+    <h1>Raphael Kichtan</h1>
+    <p>Independent Researcher – Quantum Theory, Consciousness, and Space Models</p>
+    <div class="language-toggle">
+        <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('de')">Deutsch</button>
+    </div>
+</header>
+
+<div class="container">
+
+    <div id="en" class="lang-content active">
+        <h2>Featured Work</h2>
         <ul>
             <li><a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank">
                 Yang-Mills und Raumantworten (figshare)</a></li>
             <li><a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">
-                Academia.edu version</a></li>
+                Academia.edu Version</a></li>
         </ul>
 
-        <h2>About the Author</h2>
-        <p>Independent researcher exploring the connection between quantum field theory, spatial structure, and experimental quantum data. This work attempts to fulfill the Clay Millennium criteria for the Yang-Mills problem by combining theoretical modeling with data-driven validation.</p>
+        <h2>About the Project</h2>
+        <p>This research addresses the Yang-Mills mass gap problem through a novel space-response field theory, integrating empirical quantum data and mathematical modeling. The work is a step toward fulfilling the Clay Millennium criteria through a data-driven, non-speculative approach to fundamental field theory.</p>
 
         <h2>Contact</h2>
-        <p>Email: Raphael.Kichtan1010@gmail.com</p>
+        <p>Email: <a href="mailto:Raphael.Kichtan1010@gmail.com">Raphael.Kichtan1010@gmail.com</a></p>
     </div>
+
+    <div id="de" class="lang-content">
+        <h2>Veröffentlichungen</h2>
+        <ul>
+            <li><a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank">
+                Yang-Mills und Raumantworten (figshare)</a></li>
+            <li><a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">
+                Academia.edu-Version</a></li>
+        </ul>
+
+        <h2>Über das Projekt</h2>
+        <p>Diese Forschung behandelt das Yang-Mills-Masselückenproblem durch eine neuartige Theorie zur Raumantwort. Sie verbindet experimentelle Quantenmessdaten mit mathematischer Modellbildung. Ziel ist es, die Kriterien des Clay Millennium-Instituts durch einen datenbasierten und nicht spekulativen Ansatz zu erfüllen.</p>
+
+        <h2>Kontakt</h2>
+        <p>E-Mail: <a href="mailto:Raphael.Kichtan1010@gmail.com">Raphael.Kichtan1010@gmail.com</a></p>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2025 Raphael Kichtan
+</footer>
+
 </body>
 </html>
