@@ -198,5 +198,21 @@
       localStorage.setItem('lang', lang);
     }
   </script>
-</body>
+<script>
+document.querySelectorAll('.pub-box h2').forEach((header) => {
+  header.style.cursor = 'pointer';
+  const content = header.nextElementSibling;
+  const siblings = [];
+  let node = content;
+  while (node && (node.tagName === "P" || node.tagName === "A")) {
+    siblings.push(node);
+    node = node.nextElementSibling;
+  }
+  siblings.forEach(el => el.style.display = "none");
+  header.addEventListener('click', () => {
+    const visible = siblings[0].style.display !== "none";
+    siblings.forEach(el => el.style.display = visible ? "none" : "block");
+  });
+});
+</script></body>
 </html>
