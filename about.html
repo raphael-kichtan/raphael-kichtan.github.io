@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Über mich – Raphael Kichtan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    header {
+      background: url('headerbild.PNG') center/cover no-repeat;
+      color: white;
+      padding: 4rem 1rem 6rem;
+      text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+    header * {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+    }
+    nav {
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #2a5298;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+    nav a.active,
+    nav a:hover {
+      border-bottom: 2px solid #2a5298;
+    }
+    .main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    .profilbild {
+      max-width: 250px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      margin: 2rem auto 1rem;
+      display: block;
+    }
+    .toggle-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+    .toggle-container button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: none;
+      background: #ccc;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .toggle-container button.active {
+      background: #2a5298;
+      color: white;
+    }
+    #theme-icon {
+      font-size: 1.2rem;
+      background: #2a5298;
+      color: white;
+      border-radius: 50%;
+      padding: 6px 10px;
+      transition: background 0.4s ease, transform 0.4s ease;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toggle-container">
+    <span id="theme-icon">☀️</span>
+    <button onclick="toggleMode()">Mode</button>
+    <button onclick="switchLang('de')" id="btn-de" class="active">DE</button>
+    <button onclick="switchLang('en')" id="btn-en">EN</button>
+  </div>
+
+  <header>
+    <h1>Raphael Kichtan</h1>
+    <p id="headerText"
+      data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind."
+      data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me.">
+      Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.
+    </p>
+  </header>
+
+  <nav>
+    <a href="index.html" data-de="Startseite" data-en="Home">Startseite</a>
+    <a href="about.html" class="active" data-de="Über mich" data-en="About me">Über mich</a>
+    <a href="veroeffentlichungen.html" data-de="Veröffentlichungen" data-en="Publications">Veröffentlichungen</a>
+  </nav>
+
+  <div class="main">
+    <img src="profilbild.jpg" alt="Profilbild Raphael" class="profilbild" />
+    <p id="aboutText" data-de="Hier kommt dein individueller Vorstellungstext auf Deutsch."
+       data-en="This is your personal introduction text in English.">
+       Hier kommt dein individueller Vorstellungstext auf Deutsch.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 Raphael Kichtan
+  </footer>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const icon = document.getElementById('theme-icon');
+      icon.textContent = document.body.classList.contains('dark') ? "🌙" : "☀️";
+    });
+
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+      const icon = document.getElementById('theme-icon');
+      icon.textContent = document.body.classList.contains('dark') ? "🌙" : "☀️";
+      icon.style.transform = 'scale(1.15)';
+      setTimeout(() => { icon.style.transform = 'scale(1)'; }, 200);
+    }
+
+    function switchLang(lang) {
+      document.querySelectorAll('[data-de], [data-en]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+
+</body>
+</html>
