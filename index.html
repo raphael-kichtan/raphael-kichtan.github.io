@@ -19,7 +19,7 @@
       color: #e0e0e0;
     }
     header {
-      background: url('headerbild.png.PNG') center/cover no-repeat;
+      background: url('headerbild.png') center/cover no-repeat;
       color: white;
       padding: 4rem 1rem 6rem;
       text-align: center;
@@ -123,28 +123,17 @@
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-  </style>
-<style>
-  .parallax-image {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    margin-top: 2rem;
-    transition: transform 0.3s ease-out;
-  }
-  .fade-in {
-    opacity: 0;
-    animation: fadeIn ease-in 1 forwards;
-    animation-duration: 1.5s;
-  }
-  @keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-  }
-</style></head>
+  
+#theme-toggle:active {
+  animation: pulse 0.3s ease;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
 <body>
 <div class="toggle-container">
 <span id="theme-icon">☀️</span>
@@ -164,8 +153,11 @@
 <a data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
 </nav>
 <div class="main">
-<br/>
-<p style="text-align:center; font-style:italic; margin-top:2rem;">Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.</p><img alt="Einleitungsbild" class="parallax-image fade-in" src="einleitungsbild.jpg" style="max-width:100%; border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.3); margin-top:2rem;"/></div>
+<p data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren." data-en="Use the menu above to learn more about me and my work.">
+       Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.
+    </p>
+<img alt="Wissenschaftlich inspiriertes Begrüßungsbild" class="hero-img" src="https://images.unsplash.com/photo-1610472359960-95b3feec2b86?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80"/>
+</div>
 <footer>
     © 2025 Raphael Kichtan
   </footer>
@@ -194,12 +186,22 @@
     }
   </script>
 <script>
-  document.addEventListener("scroll", () => {
-    const img = document.querySelector(".parallax-image");
-    if (img) {
-      let offset = window.scrollY;
-      img.style.transform = "translateY(" + offset * 0.1 + "px)";
+  const langElements = {
+    de: {
+      menuText: "Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren."
+    },
+    en: {
+      menuText: "Use the menu above to learn more about me and my work."
     }
-  });
+  };
+
+  const updateLang = (lang) => {
+    document.getElementById("menuText").textContent = langElements[lang].menuText;
+    document.getElementById("de-btn").classList.toggle("active", lang === "de");
+    document.getElementById("en-btn").classList.toggle("active", lang === "en");
+  };
+
+  document.getElementById("de-btn").addEventListener("click", () => updateLang("de"));
+  document.getElementById("en-btn").addEventListener("click", () => updateLang("en"));
 </script></body>
 </html>
