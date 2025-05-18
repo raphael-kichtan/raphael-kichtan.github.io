@@ -3,33 +3,152 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Startseite – Raphael Kichtan</title>
+  <title>Raphael Kichtan – Startseite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; color: #333; }
-    header, footer { background: #1a2a40; color: white; text-align: center; padding: 1em 0; }
-    nav { background: #2980b9; padding: 0.5em; text-align: center; }
-    nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
-    .main { text-align: center; margin: 2em; }
-    .btn { background: #2980b9; color: white; padding: 12px 24px; margin: 10px; display: inline-block;
-           text-decoration: none; border-radius: 5px; }
-    .btn:hover { background: #1f6694; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    nav {
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #2a5298;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background: #2a5298;
+      width: 0;
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .main {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #2a5298;
+      color: white;
+      padding: 12px 24px;
+      margin: 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #1e3c72;
+    }
+    .toggle-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+    .toggle-container button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: none;
+      background: #2a5298;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
   </style>
 </head>
 <body>
+
+  <div class="toggle-container">
+    <button onclick="toggleMode()">🌗</button>
+    <button onclick="switchLang('de')" id="btn-de" class="active">DE</button>
+    <button onclick="switchLang('en')" id="btn-en">EN</button>
+  </div>
+
   <header>
-    <h1>Raphael Kichtan</h1>
-    <p>Wissenschaftliche Arbeit & Veröffentlichungen</p>
+    <h1 data-de="Raphael Kichtan" data-en="Raphael Kichtan">Raphael Kichtan</h1>
+    <p id="subtitle"
+      data-de="Wissenschaftliche Arbeit & Veröffentlichungen"
+      data-en="Scientific Research & Publications">
+      Wissenschaftliche Arbeit & Veröffentlichungen
+    </p>
   </header>
+
   <nav>
     <a href="index.html">Startseite</a>
-    <a href="about.html">Über mich</a>
-    <a href="veroeffentlichungen.html">Veröffentlichungen</a>
+    <a href="about.html" data-de="Über mich" data-en="About me">Über mich</a>
+    <a href="veroeffentlichungen.html" data-de="Veröffentlichungen" data-en="Publications">Veröffentlichungen</a>
   </nav>
+
   <div class="main">
-    <a class="btn" href="Yang-Mills-und-Raumantworten.pdf" download>PDF herunterladen</a><br>
-    <a class="btn" href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank">figshare-Veröffentlichung</a>
-    <a class="btn" href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">academia.edu-Version</a>
+    <a class="btn" href="Yang-Mills-und-Raumantworten.pdf" download
+      data-de="PDF herunterladen" data-en="Download PDF">PDF herunterladen</a><br/>
+    <a class="btn" href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank"
+      data-de="figshare-Veröffentlichung" data-en="figshare publication">figshare-Veröffentlichung</a>
+    <a class="btn" href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank"
+      data-de="academia.edu-Version" data-en="academia.edu version">academia.edu-Version</a>
   </div>
-  <footer>&copy; 2025 Raphael Kichtan</footer>
+
+  <footer>
+    &copy; 2025 Raphael Kichtan
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    function switchLang(lang) {
+      document.querySelectorAll('[data-de]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+
 </body>
 </html>
