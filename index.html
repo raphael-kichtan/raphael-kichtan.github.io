@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 
 <html lang="de">
-<head><title>Raphael Kichtan – Projekte &amp; Forschung</title><meta content="Willkommen auf der offiziellen Website von Raphael Kichtan. Hier findest du seine Projekte, Gedanken und Veröffentlichungen zu Quantenphysik, Raumstrukturen und mehr." name="description"/>
+<head><title>Raphael Kichtan – Projekte &amp; Forschung</title><meta content="Offizielle Website von Raphael Kichtan. Hier findest du seine Projekte, Gedanken und Veröffentlichungen zu Quantenphysik, Raumstrukturen und mehr." name="description"/>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
     body {
       margin: 0;
@@ -19,7 +20,6 @@
     }
     header {
       background: url('headerbild.PNG') center/cover no-repeat;
-      background: url('headerbild.png') center/cover no-repeat;
       color: white;
       padding: 4rem 1rem 6rem;
       text-align: center;
@@ -43,9 +43,6 @@
     header p {
       font-size: 1.3rem;
       margin-top: 1rem;
-      opacity: 0;
-      animation: fadeIn 1s ease-out forwards;
-      animation-delay: 0.8s;
     }
     nav {
       background: #ffffff;
@@ -70,15 +67,18 @@
       margin: 3rem auto;
       padding: 1rem;
       text-align: center;
-      animation: slideIn 1.2s ease-out;
+      animation: fadeIn 1.5s ease-out;
     }
-    .hero-img {
-      max-width: 90%;
-      height: auto;
-      margin: 2rem auto;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    .parallax-image {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      margin-top: 2rem;
+      transition: transform 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
     .toggle-container {
       position: fixed;
@@ -93,9 +93,9 @@
       padding: 6px 10px;
       border-radius: 4px;
       border: none;
+      background: #ccc;
       font-weight: bold;
       cursor: pointer;
-      background: #ccc;
       transition: background 0.3s ease, transform 0.3s ease;
     }
     .toggle-container button.active {
@@ -116,16 +116,9 @@
       font-size: 0.9rem;
       color: #777;
     }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
-<body class="">
+<body>
 <div class="toggle-container">
 <span id="theme-icon">☀️</span>
 <button onclick="toggleMode()">Mode</button>
@@ -133,8 +126,8 @@
 <button id="btn-en" onclick="switchLang('en')">EN</button>
 </div>
 <header>
-<h1 data-de="Raphael Kichtan" data-en="Raphael Kichtan">Raphael Kichtan</h1>
-<p data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind." data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me." id="subtitle">
+<h1>Raphael Kichtan</h1>
+<p data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind." data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me." id="headerText">
       Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.
     </p>
 </header>
@@ -144,61 +137,58 @@
 <a data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
 </nav>
 <div class="main">
-<p data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren." data-en="Use the menu above to learn more about me and my work.">
+<p data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren." data-en="Use the menu above to learn more about me and my work." id="menuText">
        Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.
     </p>
-<img alt="Wissenschaftlich inspiriertes Begrüßungsbild" class="hero-img" src="https://images.unsplash.com/photo-1610472359960-95b3feec2b86?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80"/>
-<img alt="Einleitungsbild" class="parallax-image" src="einleitungsbild.jpg"/></div>
+<img alt="Einleitungsbild" class="parallax-image" src="einleitungsbild.jpg"/>
+</div>
 <footer>
     © 2025 Raphael Kichtan
   </footer>
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  const theme = localStorage.getItem('theme') || 'light';
-  const lang = localStorage.getItem('lang') || 'de';
+  window.addEventListener('DOMContentLoaded', () => {
+    const theme = localStorage.getItem('theme') || 'light';
+    const lang = localStorage.getItem('lang') || 'de';
 
-  if (theme === 'dark') {
-    document.body.classList.add('dark');
+    if (theme === 'dark') {
+      document.body.classList.add('dark');
+      document.getElementById('theme-icon').textContent = "🌙";
+    } else {
+      document.body.classList.remove('dark');
+      document.getElementById('theme-icon').textContent = "☀️";
+    }
+
+    switchLang(lang);
+  });
+
+  function toggleMode() {
+    const isDark = document.body.classList.toggle('dark');
     const icon = document.getElementById('theme-icon');
-    if (icon) icon.textContent = "🌙";
-  } else {
-    const icon = document.getElementById('theme-icon');
-    if (icon) icon.textContent = "☀️";
-  }
-
-  switchLang(lang);
-});
-
-function toggleMode() {
-  const isDark = document.body.classList.toggle('dark');
-  const icon = document.getElementById('theme-icon');
-  if (icon) {
     icon.textContent = isDark ? "🌙" : "☀️";
     icon.style.transform = 'scale(1.15)';
     setTimeout(() => { icon.style.transform = 'scale(1)'; }, 200);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
 
-function switchLang(lang) {
-  document.querySelectorAll('[data-de], [data-en]').forEach(el => {
-    el.innerHTML = el.getAttribute('data-' + lang);
+  function switchLang(lang) {
+    document.querySelectorAll('[data-de], [data-en]').forEach(el => {
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+    const deBtn = document.getElementById('btn-de');
+    const enBtn = document.getElementById('btn-en');
+    if (deBtn && enBtn) {
+      deBtn.classList.toggle('active', lang === 'de');
+      enBtn.classList.toggle('active', lang === 'en');
+    }
+    localStorage.setItem('lang', lang);
+  }
+
+  document.addEventListener("scroll", () => {
+    const img = document.querySelector(".parallax-image");
+    if (img) {
+      let offset = window.scrollY;
+      img.style.transform = "translateY(" + offset * 0.1 + "px)";
+    }
   });
-  const deBtn = document.getElementById('btn-de');
-  const enBtn = document.getElementById('btn-en');
-  if (deBtn && enBtn) {
-    deBtn.classList.toggle('active', lang === 'de');
-    enBtn.classList.toggle('active', lang === 'en');
-  }
-  localStorage.setItem('lang', lang);
-}
-
-document.addEventListener("scroll", () => {
-  const img = document.querySelector(".parallax-image");
-  if (img) {
-    let offset = window.scrollY;
-    img.style.transform = "translateY(" + offset * 0.1 + "px)";
-  }
-});
 </script></body>
 </html>
