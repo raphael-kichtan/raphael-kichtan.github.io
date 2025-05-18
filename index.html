@@ -124,7 +124,27 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
-</head>
+<style>
+  .parallax-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    margin-top: 2rem;
+    transition: transform 0.3s ease-out;
+  }
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn ease-in 1 forwards;
+    animation-duration: 1.5s;
+  }
+  @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+</style></head>
 <body>
 <div class="toggle-container">
 <span id="theme-icon">☀️</span>
@@ -145,7 +165,7 @@
 </nav>
 <div class="main">
 <br/>
-<img alt="Einleitungsbild" src="einleitungsbild.jpg" style="max-width:100%; border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.3); margin-top:2rem;"/></div>
+<p style="text-align:center; font-style:italic; margin-top:2rem;">Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.</p><img alt="Einleitungsbild" class="parallax-image fade-in" src="einleitungsbild.jpg" style="max-width:100%; border-radius:12px; box-shadow:0 0 20px rgba(0,0,0,0.3); margin-top:2rem;"/></div>
 <footer>
     © 2025 Raphael Kichtan
   </footer>
@@ -173,5 +193,13 @@
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     }
   </script>
-</body>
+<script>
+  document.addEventListener("scroll", () => {
+    const img = document.querySelector(".parallax-image");
+    if (img) {
+      let offset = window.scrollY;
+      img.style.transform = "translateY(" + offset * 0.1 + "px)";
+    }
+  });
+</script></body>
 </html>
