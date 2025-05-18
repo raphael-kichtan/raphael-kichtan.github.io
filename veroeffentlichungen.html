@@ -1,11 +1,12 @@
 
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Veröffentlichungen – Raphael Kichtan</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Veröffentlichungen – Raphael Kichtan</title>
+<style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -137,42 +138,35 @@
   </style>
 </head>
 <body>
-
-  <div class="toggle-container">
-    <span id="theme-icon">☀️</span>
-    <button onclick="toggleMode()">Mode</button>
-    <button onclick="switchLang('de')" id="btn-de" class="active">DE</button>
-    <button onclick="switchLang('en')" id="btn-en">EN</button>
-  </div>
-
-  <header>
-    <h1>Raphael Kichtan</h1>
-  </header>
-
-  <nav>
-    <a href="index.html" data-de="Startseite" data-en="Home">Startseite</a>
-    <a href="about.html" data-de="Über mich" data-en="About me">Über mich</a>
-    <a href="veroeffentlichungen.html" class="active" data-de="Veröffentlichungen" data-en="Publications">Veröffentlichungen</a>
-  </nav>
-
-  <div class="main">
-    <div class="pub-box">
-      <h2 data-de="Yang-Mills und Raumantworten" data-en="Yang-Mills and Space Response">Yang-Mills und Raumantworten</h2>
-      <p data-de="In dieser Veröffentlichung analysiere ich reale Quantenmessdaten und zeige, wie eine empirische Raumgleichung die Masse-Lücke und die Yang-Mills-Feldstruktur erklärt."
-         data-en="This publication analyzes real quantum measurement data and shows how an empirical space equation explains the mass gap and Yang-Mills field structure.">
+<div class="toggle-container">
+<span id="theme-icon">☀️</span>
+<button onclick="toggleMode()">Mode</button>
+<button class="active" id="btn-de" onclick="switchLang('de')">DE</button>
+<button id="btn-en" onclick="switchLang('en')">EN</button>
+</div>
+<header>
+<h1>Raphael Kichtan</h1>
+</header>
+<nav>
+<a data-de="Startseite" data-en="Home" href="index.html">Startseite</a>
+<a data-de="Über mich" data-en="About me" href="about.html">Über mich</a>
+<a class="active" data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
+</nav>
+<div class="main">
+<div class="pub-box">
+<h2 data-de="Yang-Mills und Raumantworten (deutsche Version)" data-en="Yang-Mills and Space Response (German version)">Yang-Mills und Raumantworten (deutsche Version)</h2>
+<p data-de="In dieser Veröffentlichung analysiere ich reale Quantenmessdaten und zeige, wie eine empirische Raumgleichung die Masse-Lücke und die Yang-Mills-Feldstruktur erklärt." data-en="This publication analyzes real quantum measurement data and shows how an empirical space equation explains the mass gap and Yang-Mills field structure.">
          In dieser Veröffentlichung analysiere ich reale Quantenmessdaten und zeige, wie eine empirische Raumgleichung die Masse-Lücke und die Yang-Mills-Feldstruktur erklärt.
       </p>
-      <a href="Yang-Mills%20und%20Raumantworten%20PDF.pdf" download>PDF herunterladen</a>
-      <a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546?file=54623771" target="_blank">Figshare</a>
-      <a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">Academia.edu</a>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Raphael Kichtan
+<a download="Yang-Mills_und_Raumantworten_PDF.pdf" href="Yang-Mills_und_Raumantworten_PDF.pdf">PDF herunterladen</a>
+<a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546?file=54623771" target="_blank">Figshare</a>
+<a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">Academia.edu</a>
+</div>
+</div>
+<footer>
+    © 2025 Raphael Kichtan
   </footer>
-
-  <script>
+<script>
     window.addEventListener('DOMContentLoaded', () => {
       const theme = localStorage.getItem('theme') || 'light';
       const lang = localStorage.getItem('lang') || 'de';
@@ -205,6 +199,5 @@
       localStorage.setItem('lang', lang);
     }
   </script>
-
 </body>
 </html>
