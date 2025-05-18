@@ -135,32 +135,13 @@
       color: #777;
     }
   
-.pub-box h2 {
-    cursor: pointer;
-    position: relative;
-    padding-left: 1.6rem;
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-right: 10px;
 }
-.pub-box h2::before {
-    content: "⯈";
-    position: absolute;
-    left: 0;
-    font-size: 1rem;
-    transition: transform 0.3s ease;
-}
-.pub-box.open h2::before {
-    transform: rotate(90deg);
-}
-.pub-box.fadein p,
-.pub-box.fadein a {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-.pub-box.open.fadein p,
-.pub-box.open.fadein a {
-    opacity: 1;
-}
-.pub-box.open {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+.accordion-header.active .arrow {
+  transform: rotate(90deg);
 }
 </style>
 </head>
@@ -227,23 +208,19 @@
     }
   </script>
 <script>
-document.querySelectorAll('.pub-box').forEach((box) => {
-  const header = box.querySelector('h2');
+document.querySelectorAll('.pub-box h2').forEach((header) => {
+  header.style.cursor = 'pointer';
+  const content = header.nextElementSibling;
   const siblings = [];
-  let node = header.nextElementSibling;
+  let node = content;
   while (node && (node.tagName === "P" || node.tagName === "A")) {
     siblings.push(node);
     node = node.nextElementSibling;
   }
   siblings.forEach(el => el.style.display = "none");
-  box.classList.add("fadein");
-
   header.addEventListener('click', () => {
-    const isOpen = box.classList.contains("open");
-    box.classList.toggle("open", !isOpen);
-    siblings.forEach(el => {
-      el.style.display = isOpen ? "none" : "block";
-    });
+    const visible = siblings[0].style.display !== "none";
+    siblings.forEach(el => el.style.display = visible ? "none" : "block");
   });
 });
 </script></body>
