@@ -1,144 +1,35 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Raphael Kichtan – Research & Publications</title>
+  <title>Startseite – Raphael Kichtan</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      transition: background 0.3s, color 0.3s;
-      background: #f0f0f0;
-      color: #111;
-    }
-    body.dark {
-      background: #121212;
-      color: #e0e0e0;
-    }
-    header {
-      background: url('https://images.unsplash.com/photo-1581090700227-1e8e6e287b5a?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      color: white;
-      padding: 100px 20px 60px;
-      text-align: center;
-      position: relative;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.4);
-    }
-    header * {
-      position: relative;
-      z-index: 1;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    nav {
-      text-align: center;
-      margin: 20px 0;
-    }
-    nav button {
-      margin: 0 10px;
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    nav .active {
-      background-color: #2980b9;
-      color: white;
-    }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      animation: fadeIn 1s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    footer {
-      text-align: center;
-      margin: 60px 0 20px;
-      font-size: 0.9em;
-      color: gray;
-    }
-    .toggle-container {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 100;
-    }
-    .toggle-container button {
-      padding: 8px 12px;
-      border-radius: 5px;
-      background: #2980b9;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-left: 5px;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; color: #333; }
+    header, footer { background: #1a2a40; color: white; text-align: center; padding: 1em 0; }
+    nav { background: #2980b9; padding: 0.5em; text-align: center; }
+    nav a { color: white; margin: 0 1em; text-decoration: none; font-weight: bold; }
+    .main { text-align: center; margin: 2em; }
+    .btn { background: #2980b9; color: white; padding: 12px 24px; margin: 10px; display: inline-block;
+           text-decoration: none; border-radius: 5px; }
+    .btn:hover { background: #1f6694; }
   </style>
 </head>
 <body>
-  <div class="toggle-container">
-    <button onclick="toggleMode()">🌗 Theme</button>
-    <button onclick="switchLang('en')" id="btn-en" class="active">English</button>
-    <button onclick="switchLang('de')" id="btn-de">Deutsch</button>
-  </div>
-
   <header>
-    <h1 data-en="Raphael Kichtan" data-de="Raphael Kichtan">Raphael Kichtan</h1>
-    <p id="subtitle" data-en="Independent Researcher – Quantum Field Theory & Spatial Structure"
-       data-de="Unabhängiger Forscher – Quantenfeldtheorie & Raumstruktur">
-       Independent Researcher – Quantum Field Theory & Spatial Structure
-    </p>
+    <h1>Raphael Kichtan</h1>
+    <p>Wissenschaftliche Arbeit & Veröffentlichungen</p>
   </header>
-
-  <section id="about">
-    <h2 data-en="About Me" data-de="Über mich">About Me</h2>
-    <p data-en="I pursue independent theoretical and interdisciplinary research – especially where physics, spatial structure, and consciousness intersect. My work combines personal investigations with publishable concepts and aims to develop, document, and share new perspectives continuously."
-       data-de="Ich beschäftige mich unabhängig mit theoretischen und wissenschaftsnahen Fragestellungen – insbesondere dort, wo Physik, Raumstruktur und Bewusstsein aufeinandertreffen. Dabei verknüpfe ich persönliche Forschung mit publizierbaren Ansätzen und arbeite kontinuierlich daran, neue Perspektiven zu entwickeln, zu dokumentieren und öffentlich zugänglich zu machen.">
-       I pursue independent theoretical and interdisciplinary research – especially where physics, spatial structure, and consciousness intersect. My work combines personal investigations with publishable concepts and aims to develop, document, and share new perspectives continuously.
-    </p>
-  </section>
-
-  <section id="work">
-    <h2 data-en="Publications" data-de="Veröffentlichungen">Publications</h2>
-    <ul>
-      <li><a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank">Yang-Mills und Raumantworten (figshare)</a></li>
-      <li><a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">Academia.edu Version</a></li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h2 data-en="Contact" data-de="Kontakt">Contact</h2>
-    <p>Email: <a href="mailto:Raphael.Kichtan1010@gmail.com">Raphael.Kichtan1010@gmail.com</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 Raphael Kichtan
-  </footer>
-
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark');
-    }
-    function switchLang(lang) {
-      const elements = document.querySelectorAll('[data-en]');
-      elements.forEach(el => {
-        el.innerHTML = el.getAttribute(`data-${lang}`);
-      });
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-    }
-  </script>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="about.html">Über mich</a>
+    <a href="veroeffentlichungen.html">Veröffentlichungen</a>
+  </nav>
+  <div class="main">
+    <a class="btn" href="Yang-Mills-und-Raumantworten.pdf" download>PDF herunterladen</a><br>
+    <a class="btn" href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank">figshare-Veröffentlichung</a>
+    <a class="btn" href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">academia.edu-Version</a>
+  </div>
+  <footer>&copy; 2025 Raphael Kichtan</footer>
 </body>
 </html>
