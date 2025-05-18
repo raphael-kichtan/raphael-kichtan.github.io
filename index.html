@@ -109,19 +109,12 @@
       padding: 6px 10px;
       transition: background 0.4s ease, transform 0.4s ease;
     }
-    #theme-icon.sun {
-      content: "☀️";
-    }
-    #theme-icon.moon {
-      content: "🌙";
-    }
     footer {
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #777;
     }
-
     @keyframes fadeIn {
       to { opacity: 1; }
     }
@@ -134,7 +127,7 @@
 <body>
 
   <div class="toggle-container">
-    <span id="theme-icon">🌙</span>
+    <span id="theme-icon">☀️</span>
     <button onclick="toggleMode()">Mode</button>
     <button onclick="switchLang('de')" id="btn-de" class="active">DE</button>
     <button onclick="switchLang('en')" id="btn-en">EN</button>
@@ -170,14 +163,19 @@
   </footer>
 
   <script>
-    function toggleMode() {
-      document.body.classList.toggle('dark');
+    window.addEventListener('DOMContentLoaded', () => {
       const icon = document.getElementById('theme-icon');
       if (document.body.classList.contains('dark')) {
         icon.textContent = "🌙";
       } else {
         icon.textContent = "☀️";
       }
+    });
+
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+      const icon = document.getElementById('theme-icon');
+      icon.textContent = document.body.classList.contains('dark') ? "🌙" : "☀️";
     }
 
     function switchLang(lang) {
