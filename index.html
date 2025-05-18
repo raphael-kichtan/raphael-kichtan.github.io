@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Raphael Kichtan – Wissenschaft & Theorie</title>
+  <title>Raphael Kichtan – Research & Publications</title>
   <style>
     body {
       margin: 0;
@@ -70,36 +70,43 @@
       font-size: 0.9em;
       color: gray;
     }
-    .toggle-mode {
+    .toggle-container {
       position: fixed;
       top: 10px;
       right: 10px;
+      z-index: 100;
+    }
+    .toggle-container button {
       padding: 8px 12px;
       border-radius: 5px;
       background: #2980b9;
       color: white;
       border: none;
       cursor: pointer;
+      margin-left: 5px;
     }
   </style>
 </head>
 <body>
-  <button class="toggle-mode" onclick="toggleMode()">🌗 Theme</button>
-  <header>
-    <h1 id="title">Raphael Kichtan</h1>
-    <p id="subtitle">Independent Researcher – Quantum Field Theory & Spatial Structure</p>
-  </header>
-
-  <nav>
-    <button onclick="switchLang('en')" class="active" id="btn-en">English</button>
+  <div class="toggle-container">
+    <button onclick="toggleMode()">🌗 Theme</button>
+    <button onclick="switchLang('en')" id="btn-en" class="active">English</button>
     <button onclick="switchLang('de')" id="btn-de">Deutsch</button>
-  </nav>
+  </div>
+
+  <header>
+    <h1 data-en="Raphael Kichtan" data-de="Raphael Kichtan">Raphael Kichtan</h1>
+    <p id="subtitle" data-en="Independent Researcher – Quantum Field Theory & Spatial Structure"
+       data-de="Unabhängiger Forscher – Quantenfeldtheorie & Raumstruktur">
+       Independent Researcher – Quantum Field Theory & Spatial Structure
+    </p>
+  </header>
 
   <section id="about">
     <h2 data-en="About Me" data-de="Über mich">About Me</h2>
-    <p data-en="I am an independent researcher exploring the nature of quantum fields, spatial resonance, and consciousness. My work is focused on solving the Yang-Mills problem using empirical data and theoretical modeling." 
-       data-de="Ich bin ein unabhängiger Forscher mit dem Fokus auf Quantenfelder, Raumresonanz und Bewusstsein. Meine Arbeit zielt darauf ab, das Yang-Mills-Problem mithilfe empirischer Daten und theoretischer Modellbildung zu lösen.">
-      I am an independent researcher exploring the nature of quantum fields, spatial resonance, and consciousness. My work is focused on solving the Yang-Mills problem using empirical data and theoretical modeling.
+    <p data-en="I pursue independent theoretical and interdisciplinary research – especially where physics, spatial structure, and consciousness intersect. My work combines personal investigations with publishable concepts and aims to develop, document, and share new perspectives continuously."
+       data-de="Ich beschäftige mich unabhängig mit theoretischen und wissenschaftsnahen Fragestellungen – insbesondere dort, wo Physik, Raumstruktur und Bewusstsein aufeinandertreffen. Dabei verknüpfe ich persönliche Forschung mit publizierbaren Ansätzen und arbeite kontinuierlich daran, neue Perspektiven zu entwickeln, zu dokumentieren und öffentlich zugänglich zu machen.">
+       I pursue independent theoretical and interdisciplinary research – especially where physics, spatial structure, and consciousness intersect. My work combines personal investigations with publishable concepts and aims to develop, document, and share new perspectives continuously.
     </p>
   </section>
 
