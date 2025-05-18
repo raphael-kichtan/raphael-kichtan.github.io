@@ -3,7 +3,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Raphael Kichtan – Startseite</title>
+  <title>Raphael Kichtan – Projekte & Forschung</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -18,18 +18,33 @@
       color: #e0e0e0;
     }
     header {
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: url('https://images.unsplash.com/photo-1607623814075-81281dc251b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
       color: white;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem 6rem;
       text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+    header * {
+      position: relative;
+      z-index: 1;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
     }
     header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.8s;
     }
     nav {
       background: #ffffff;
@@ -50,24 +65,55 @@
       border-bottom: 2px solid #2a5298;
     }
     .main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 1rem;
       text-align: center;
-      padding: 2rem 1rem;
+      animation: slideIn 1.2s ease-out;
+    }
+    .hero-img {
+      max-width: 90%;
+      height: auto;
+      margin: 2rem auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     .toggle-container {
       position: fixed;
       top: 10px;
       right: 10px;
       z-index: 1000;
+      display: flex;
+      align-items: center;
     }
     .toggle-container button {
       margin-left: 5px;
       padding: 6px 10px;
       border-radius: 4px;
       border: none;
-      background: #2a5298;
-      color: white;
       font-weight: bold;
       cursor: pointer;
+      background: #ccc;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .toggle-container button.active {
+      background: #2a5298;
+      color: white;
+    }
+    #theme-icon {
+      font-size: 1.2rem;
+      background: #2a5298;
+      color: white;
+      border-radius: 50%;
+      padding: 6px 10px;
+      transition: background 0.4s ease, transform 0.4s ease;
+    }
+    #theme-icon.sun {
+      content: "☀️";
+    }
+    #theme-icon.moon {
+      content: "🌙";
     }
     footer {
       text-align: center;
@@ -75,12 +121,21 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
   <div class="toggle-container">
-    <button onclick="toggleMode()">🌗</button>
+    <span id="theme-icon">🌙</span>
+    <button onclick="toggleMode()">Mode</button>
     <button onclick="switchLang('de')" id="btn-de" class="active">DE</button>
     <button onclick="switchLang('en')" id="btn-en">EN</button>
   </div>
@@ -88,9 +143,9 @@
   <header>
     <h1 data-de="Raphael Kichtan" data-en="Raphael Kichtan">Raphael Kichtan</h1>
     <p id="subtitle"
-      data-de="Wissenschaftliche Arbeit & Veröffentlichungen"
-      data-en="Scientific Research & Publications">
-      Wissenschaftliche Arbeit & Veröffentlichungen
+      data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind."
+      data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me.">
+      Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.
     </p>
   </header>
 
@@ -101,10 +156,13 @@
   </nav>
 
   <div class="main">
-    <p data-de="Willkommen auf meiner Seite für unabhängige Forschung und theoretische Modelle."
-       data-en="Welcome to my page for independent research and theoretical models.">
-       Willkommen auf meiner Seite für unabhängige Forschung und theoretische Modelle.
+    <p data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren."
+       data-en="Use the menu above to learn more about me and my work.">
+       Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.
     </p>
+    <img src="https://images.unsplash.com/photo-1610472359960-95b3feec2b86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+         alt="Wissenschaftlich inspiriertes Begrüßungsbild"
+         class="hero-img" />
   </div>
 
   <footer>
@@ -114,6 +172,12 @@
   <script>
     function toggleMode() {
       document.body.classList.toggle('dark');
+      const icon = document.getElementById('theme-icon');
+      if (document.body.classList.contains('dark')) {
+        icon.textContent = "🌙";
+      } else {
+        icon.textContent = "☀️";
+      }
     }
 
     function switchLang(lang) {
