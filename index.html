@@ -2,153 +2,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Raphael Kichtan – Research & Publications</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f4f8;
-            color: #333;
-        }
-        header {
-            background: #1a2a40;
-            color: white;
-            padding: 40px 0 20px 0;
-            text-align: center;
-        }
-        header img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: 15px;
-        }
-        header h1 {
-            margin: 10px 0 5px 0;
-            font-size: 2.2em;
-        }
-        header p {
-            margin: 0;
-            font-size: 1.1em;
-            color: #ccc;
-        }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.05);
-        }
-        h2 {
-            border-bottom: 2px solid #2980b9;
-            padding-bottom: 5px;
-            color: #2980b9;
-        }
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 12px;
-        }
-        a {
-            color: #2980b9;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #888;
-            margin: 60px 0 20px 0;
-        }
-        .language-toggle {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .lang-content {
-            display: none;
-        }
-        .lang-content.active {
-            display: block;
-        }
-        button {
-            margin: 0 5px;
-            padding: 5px 15px;
-            border: none;
-            border-radius: 5px;
-            background-color: #2980b9;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #1f6694;
-        }
-    </style>
-    <script>
-        function switchLanguage(lang) {
-            document.querySelectorAll('.lang-content').forEach(div => {
-                div.classList.remove('active');
-            });
-            document.getElementById(lang).classList.add('active');
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raphael Kichtan – Wissenschaft & Theorie</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background 0.3s, color 0.3s;
+      background: #f0f0f0;
+      color: #111;
+    }
+    body.dark {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1581090700227-1e8e6e287b5a?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      color: white;
+      padding: 100px 20px 60px;
+      text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    header * {
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+    nav button {
+      margin: 0 10px;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    nav .active {
+      background-color: #2980b9;
+      color: white;
+    }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      text-align: center;
+      margin: 60px 0 20px;
+      font-size: 0.9em;
+      color: gray;
+    }
+    .toggle-mode {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      background: #2980b9;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <button class="toggle-mode" onclick="toggleMode()">🌗 Theme</button>
+  <header>
+    <h1 id="title">Raphael Kichtan</h1>
+    <p id="subtitle">Independent Researcher – Quantum Field Theory & Spatial Structure</p>
+  </header>
 
-<header>
-    <img src="profile.jpg" alt="Raphael Kichtan">
-    <h1>Raphael Kichtan</h1>
-    <p>Independent Researcher – Quantum Theory, Consciousness, and Space Models</p>
-    <div class="language-toggle">
-        <button onclick="switchLanguage('en')">English</button>
-        <button onclick="switchLanguage('de')">Deutsch</button>
-    </div>
-</header>
+  <nav>
+    <button onclick="switchLang('en')" class="active" id="btn-en">English</button>
+    <button onclick="switchLang('de')" id="btn-de">Deutsch</button>
+  </nav>
 
-<div class="container">
+  <section id="about">
+    <h2 data-en="About Me" data-de="Über mich">About Me</h2>
+    <p data-en="I am an independent researcher exploring the nature of quantum fields, spatial resonance, and consciousness. My work is focused on solving the Yang-Mills problem using empirical data and theoretical modeling." 
+       data-de="Ich bin ein unabhängiger Forscher mit dem Fokus auf Quantenfelder, Raumresonanz und Bewusstsein. Meine Arbeit zielt darauf ab, das Yang-Mills-Problem mithilfe empirischer Daten und theoretischer Modellbildung zu lösen.">
+      I am an independent researcher exploring the nature of quantum fields, spatial resonance, and consciousness. My work is focused on solving the Yang-Mills problem using empirical data and theoretical modeling.
+    </p>
+  </section>
 
-    <div id="en" class="lang-content active">
-        <h2>Featured Work</h2>
-        <ul>
-            <li><a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank">
-                Yang-Mills und Raumantworten (figshare)</a></li>
-            <li><a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">
-                Academia.edu Version</a></li>
-        </ul>
+  <section id="work">
+    <h2 data-en="Publications" data-de="Veröffentlichungen">Publications</h2>
+    <ul>
+      <li><a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank">Yang-Mills und Raumantworten (figshare)</a></li>
+      <li><a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">Academia.edu Version</a></li>
+    </ul>
+  </section>
 
-        <h2>About the Project</h2>
-        <p>This research addresses the Yang-Mills mass gap problem through a novel space-response field theory, integrating empirical quantum data and mathematical modeling. The work is a step toward fulfilling the Clay Millennium criteria through a data-driven, non-speculative approach to fundamental field theory.</p>
+  <section id="contact">
+    <h2 data-en="Contact" data-de="Kontakt">Contact</h2>
+    <p>Email: <a href="mailto:Raphael.Kichtan1010@gmail.com">Raphael.Kichtan1010@gmail.com</a></p>
+  </section>
 
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:Raphael.Kichtan1010@gmail.com">Raphael.Kichtan1010@gmail.com</a></p>
-    </div>
-
-    <div id="de" class="lang-content">
-        <h2>Veröffentlichungen</h2>
-        <ul>
-            <li><a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank">
-                Yang-Mills und Raumantworten (figshare)</a></li>
-            <li><a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">
-                Academia.edu-Version</a></li>
-        </ul>
-
-        <h2>Über das Projekt</h2>
-        <p>Diese Forschung behandelt das Yang-Mills-Masselückenproblem durch eine neuartige Theorie zur Raumantwort. Sie verbindet experimentelle Quantenmessdaten mit mathematischer Modellbildung. Ziel ist es, die Kriterien des Clay Millennium-Instituts durch einen datenbasierten und nicht spekulativen Ansatz zu erfüllen.</p>
-
-        <h2>Kontakt</h2>
-        <p>E-Mail: <a href="mailto:Raphael.Kichtan1010@gmail.com">Raphael.Kichtan1010@gmail.com</a></p>
-    </div>
-
-</div>
-
-<footer>
+  <footer>
     &copy; 2025 Raphael Kichtan
-</footer>
+  </footer>
 
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+    }
+    function switchLang(lang) {
+      const elements = document.querySelectorAll('[data-en]');
+      elements.forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${lang}`);
+      });
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+    }
+  </script>
 </body>
 </html>
