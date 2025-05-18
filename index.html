@@ -45,36 +45,13 @@
       font-weight: bold;
       position: relative;
     }
-    nav a::after {
-      content: "";
-      position: absolute;
-      height: 2px;
-      background: #2a5298;
-      width: 0;
-      left: 0;
-      bottom: -4px;
-      transition: width 0.3s;
-    }
-    nav a:hover::after {
-      width: 100%;
+    nav a.active,
+    nav a:hover {
+      border-bottom: 2px solid #2a5298;
     }
     .main {
       text-align: center;
       padding: 2rem 1rem;
-    }
-    .btn {
-      display: inline-block;
-      background: #2a5298;
-      color: white;
-      padding: 12px 24px;
-      margin: 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #1e3c72;
     }
     .toggle-container {
       position: fixed;
@@ -118,18 +95,16 @@
   </header>
 
   <nav>
-    <a href="index.html" data-de="Startseite" data-en="Home">Startseite</a>
+    <a href="index.html" class="active" data-de="Startseite" data-en="Home">Startseite</a>
     <a href="about.html" data-de="Über mich" data-en="About me">Über mich</a>
     <a href="veroeffentlichungen.html" data-de="Veröffentlichungen" data-en="Publications">Veröffentlichungen</a>
   </nav>
 
   <div class="main">
-    <a class="btn" href="Yang-Mills-und-Raumantworten.pdf" download
-      data-de="PDF herunterladen" data-en="Download PDF">PDF herunterladen</a><br/>
-    <a class="btn" href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546" target="_blank"
-      data-de="figshare-Veröffentlichung" data-en="figshare publication">figshare-Veröffentlichung</a>
-    <a class="btn" href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank"
-      data-de="academia.edu-Version" data-en="academia.edu version">academia.edu-Version</a>
+    <p data-de="Willkommen auf meiner Seite für unabhängige Forschung und theoretische Modelle."
+       data-en="Welcome to my page for independent research and theoretical models.">
+       Willkommen auf meiner Seite für unabhängige Forschung und theoretische Modelle.
+    </p>
   </div>
 
   <footer>
