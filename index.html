@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 
 <html lang="de">
-<head>
+<head><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
 <meta charset="utf-8"/>
 <title>Raphael Kichtan – Projekte &amp; Forschung</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: #f0f2f5;
       color: #333;
       transition: background 0.3s, color 0.3s;
@@ -401,6 +401,54 @@ body.dark nav a.active {
   background: #555;
   color: #f0f0f0;
 }
+
+header::after {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+}
+
+header h1, header p {
+  animation: fadeSlide 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+nav a {
+  animation: fadeSlide 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+nav a:nth-child(1) { animation-delay: 0.2s; }
+nav a:nth-child(2) { animation-delay: 0.4s; }
+nav a:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-to-top Button */
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  display: none;
+  transition: background 0.3s;
+}
+#topBtn:hover {
+  background-color: #666;
+}
 </style>
 <meta content="Raphael Kichtan – Projekte &amp; Bewusstsein" property="og:title"/><meta content="Forschung, Quantenphysik &amp; persönliche Erkenntnisse – entdecke die Arbeiten von Raphael Kichtan." property="og:description"/><meta content="https://raphael-kichtan.github.io/headerbild.PNG" property="og:image"/><meta content="https://raphael-kichtan.github.io" property="og:url"/></head>
 <body><div class="burger" onclick="toggleNav()">☰</div>
@@ -410,13 +458,13 @@ body.dark nav a.active {
 <button class="active" id="btn-de" onclick="switchLang('de')">DE</button>
 <button id="btn-en" onclick="switchLang('en')">EN</button>
 </div>
-<header>
+<header><div style="position: absolute; top: 15px; left: 15px; background: #2c2c2c; color: #f0f0f0; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: Poppins; box-shadow: 0 0 8px rgba(0,0,0,0.3);">RK</div>
 <h1>Raphael Kichtan</h1>
 <p data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind." data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me." id="headerText">
       Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.
     </p>
 </header>
-<nav><a data-de="Startseite" data-en="Home" href="index.html">Startseite</a><a data-de="Über mich" data-en="About me" href="about.html">Über mich</a><a data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a></nav>
+<nav><a data-de="Startseite" data-en="Home" href="index.html">🏠 Startseite</a><a data-de="Über mich" data-en="About me" href="about.html">👤 Über mich</a><a data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">📄 Veröffentlichungen</a></nav>
 <div class="main"><div class="intro-text fade-in"><h2 data-de="Willkommen auf meiner Website" data-en="Welcome to my website">Willkommen auf meiner Website</h2><p data-de="Forschung. Bewusstsein. Perspektivwechsel." data-en="Research. Awareness. Change of perspective.">Forschung. Bewusstsein. Perspektivwechsel.</p><p class="menutext" data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren." data-en="Use the menu above to learn more about me and my work." style="color: #777; font-size: 0.95em; margin-top: 1em; text-align: center;">Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.</p></div>
 <img alt="Einleitungsbild" class="parallax-image" loading="lazy" src="einleitungsbild.jpg"/>
 </div>
@@ -477,5 +525,17 @@ function toggleNav() {
 function toggleNav() {
   document.querySelector("nav").classList.toggle("active");
 }
+</script><button id="topBtn">↑</button><script>
+let topBtn = document.getElementById("topBtn");
+window.onscroll = function() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+};
+topBtn.onclick = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 </script></body>
 </html>
