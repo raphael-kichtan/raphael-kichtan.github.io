@@ -517,6 +517,23 @@ nav a {
   min-width: 120px;
   text-align: center;
 }
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+}
+.menu-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.menu-group a {
+  min-width: 120px;
+  text-align: center;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script></head>
 <body>
@@ -531,11 +548,7 @@ nav a {
       Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.
     </p>
 </header>
-<nav style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; padding: 1rem 0.5rem;">
-<a class="fadeSlide" data-de="Startseite" data-en="Home" href="index.html" style="animation-delay: 0.2s;">Startseite</a>
-<a class="active fadeSlide" data-de="Über mich" data-en="About me" href="about.html" style="animation-delay: 0.4s;">Über mich</a>
-<a class="fadeSlide" data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html" style="animation-delay: 0.6s;">Veröffentlichungen</a>
-</nav>
+<nav style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; padding: 1rem 0.5rem;"><div class="menu-group"><a href="index.html">Startseite</a><a class="active" href="about.html">Über mich</a></div><div class="menu-group"><a href="veroeffentlichungen.html">Veröffentlichungen</a><a href="impressum.html">Impressum</a></div></nav>
 <div class="main fade-in">
 <img alt="Profilbild Raphael" class="profilbild" src="profile.JPG"/>
 <p class="fade-in fade-in" data-de="Hallo, ich bin Raphael Kichtan. Ich wurde am 10.10.2002 in Deutschland geboren. Auf dieser Seite teile ich alles, woran ich aktuell arbeite oder was mich interessiert – ganz gleich ob wissenschaftliche Theorien, kreative Ideen oder persönliche Projekte." data-en="Hi, I'm Raphael Kichtan. I was born on October 10, 2002 in Germany. On this site, I share everything I'm currently working on or interested in – whether scientific theories, creative ideas or personal projects." id="aboutText">Hallo, ich bin Raphael Kichtan. Ich wurde am 10.10.2002 in Deutschland geboren. Auf dieser Seite teile ich alles, woran ich aktuell arbeite oder was mich interessiert – ganz gleich ob wissenschaftliche Theorien, kreative Ideen oder persönliche Projekte.</p><p class="fade-in fade-in"><a class="fadeSlide" href="mailto:Raphael.Kichtan1010@gmail.com" style="animation-delay: 0.8s;">Raphael.Kichtan1010@gmail.com</a></p>
