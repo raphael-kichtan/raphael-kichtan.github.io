@@ -266,6 +266,21 @@ a[href^="mailto:"]:hover {
 #topBtn:hover {
   background-color: #666;
 }
+
+html.dark, body.dark {
+  background: #0e0e0e !important;
+}
+body.dark .main {
+  background: transparent !important;
+}
+
+.main {
+  opacity: 0;
+  animation: fadeInMain 2s ease forwards;
+}
+@keyframes fadeInMain {
+  to { opacity: 1; }
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script></head>
 <body>
@@ -286,7 +301,7 @@ a[href^="mailto:"]:hover {
 <a class="active" data-de="Über mich" data-en="About me" href="about.html">Über mich</a>
 <a data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
 </nav>
-<div class="main">
+<div class="main fade-in">
 <img alt="Profilbild Raphael" class="profilbild fade-in fade-in" src="profile.JPG"/>
 <p class="fade-in fade-in" data-de="Hallo, ich bin Raphael Kichtan. Ich wurde am 10.10.2002 in Deutschland geboren. Auf dieser Seite teile ich alles, woran ich aktuell arbeite oder was mich interessiert – ganz gleich ob wissenschaftliche Theorien, kreative Ideen oder persönliche Projekte." data-en="Hi, I'm Raphael Kichtan. I was born on October 10, 2002 in Germany. On this site, I share everything I'm currently working on or interested in – whether scientific theories, creative ideas or personal projects." id="aboutText">Hallo, ich bin Raphael Kichtan. Ich wurde am 10.10.2002 in Deutschland geboren. Auf dieser Seite teile ich alles, woran ich aktuell arbeite oder was mich interessiert – ganz gleich ob wissenschaftliche Theorien, kreative Ideen oder persönliche Projekte.</p><p class="fade-in fade-in"><a href="mailto:Raphael.Kichtan1010@gmail.com">Raphael.Kichtan1010@gmail.com</a></p>
 </div>
