@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 <html lang="de">
-<head><title>Veröffentlichungen – Raphael Kichtan</title><meta content="Wissenschaftliche Veröffentlichungen von Raphael Kichtan – unter anderem zur Lösung des Yang-Mills-Problems und quantenphysikalischen Raumstrukturen." name="description"/>
+<head><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&amp;display=swap" rel="stylesheet"/><title>Veröffentlichungen – Raphael Kichtan</title><meta content="Wissenschaftliche Veröffentlichungen von Raphael Kichtan – unter anderem zur Lösung des Yang-Mills-Problems und quantenphysikalischen Raumstrukturen." name="description"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: #f0f2f5;
       color: #333;
       transition: background 0.3s, color 0.3s;
@@ -162,8 +162,66 @@
 .pub-box.open {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+
+#vanta-bg {
+  position: relative;
+  overflow: hidden;
+}
+#vanta-bg::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+#vanta-bg * {
+  position: relative;
+  z-index: 1;
+}
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+}
+nav a {
+  font-size: 1rem;
+  color: #f0f0f0;
+  background: #2c2c2c;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  white-space: nowrap;
+}
+nav a:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+nav a.active {
+  background: #555;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+body.dark nav a {
+  background: #2c2c2c;
+  color: #f0f0f0;
+}
+body.dark nav a:hover {
+  background: #444;
+}
+body.dark nav a.active {
+  background: #555;
+}
 </style>
-</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script></head>
 <body>
 <div class="toggle-container">
 <span id="theme-icon">☀️</span>
@@ -171,7 +229,7 @@
 <button class="active" id="btn-de" onclick="switchLang('de')">DE</button>
 <button id="btn-en" onclick="switchLang('en')">EN</button>
 </div>
-<header>
+<header id="vanta-bg">
 <h1>Raphael Kichtan</h1>
 </header>
 <nav>
@@ -245,6 +303,21 @@ document.querySelectorAll('.pub-box').forEach((box) => {
       el.style.display = isOpen ? "none" : "block";
     });
   });
+});
+</script><script>
+VANTA.NET({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.0,
+  scaleMobile: 1.0,
+  color: 0x444488,
+  backgroundColor: 0x000000,
+  points: 12.0,
+  maxDistance: 20.0,
+  spacing: 15.0
 });
 </script></body>
 </html>
