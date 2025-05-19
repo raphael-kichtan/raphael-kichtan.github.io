@@ -492,10 +492,29 @@ body.dark .projekt-teaser {
 .parallax-image {
   margin-bottom: 6rem;
 }
+
+.profilbild {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  animation: fadeIn 2s ease forwards;
+}
+
+a[href^="mailto:"] {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+}
+a[href^="mailto:"]:hover {
+  text-decoration: underline;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script></head>
 <body>
-
 <header id="vanta-bg"><div class="toggle-container" style="position: absolute; top: 10px; right: 10px; z-index: 1000; display: flex; align-items: center; gap: 5px;">
 <span id="theme-icon">☀️</span>
 <button onclick="toggleMode()">Mode</button>
@@ -513,7 +532,7 @@ body.dark .projekt-teaser {
 <a class="fadeSlide" data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html" style="animation-delay: 0.6s;">Veröffentlichungen</a>
 </nav>
 <div class="main fade-in">
-<img alt="Profilbild Raphael" class="profilbild fade-in fade-in" src="profile.JPG"/>
+<img alt="Profilbild Raphael" class="profilbild" src="profile.JPG"/>
 <p class="fade-in fade-in" data-de="Hallo, ich bin Raphael Kichtan. Ich wurde am 10.10.2002 in Deutschland geboren. Auf dieser Seite teile ich alles, woran ich aktuell arbeite oder was mich interessiert – ganz gleich ob wissenschaftliche Theorien, kreative Ideen oder persönliche Projekte." data-en="Hi, I'm Raphael Kichtan. I was born on October 10, 2002 in Germany. On this site, I share everything I'm currently working on or interested in – whether scientific theories, creative ideas or personal projects." id="aboutText">Hallo, ich bin Raphael Kichtan. Ich wurde am 10.10.2002 in Deutschland geboren. Auf dieser Seite teile ich alles, woran ich aktuell arbeite oder was mich interessiert – ganz gleich ob wissenschaftliche Theorien, kreative Ideen oder persönliche Projekte.</p><p class="fade-in fade-in"><a class="fadeSlide" href="mailto:Raphael.Kichtan1010@gmail.com" style="animation-delay: 0.8s;">Raphael.Kichtan1010@gmail.com</a></p>
 </div>
 <footer>
