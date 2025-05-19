@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 
 <html lang="de">
-<head><title>Raphael Kichtan – Projekte &amp; Forschung</title><meta content="Offizielle Website von Raphael Kichtan. Hier findest du seine Projekte, Gedanken und Veröffentlichungen zu Quantenphysik, Raumstrukturen und mehr." name="description"/>
+<head>
 <meta charset="utf-8"/>
-
+<title>Raphael Kichtan – Projekte &amp; Forschung</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
     body {
@@ -116,9 +116,67 @@
       font-size: 0.9rem;
       color: #777;
     }
-  </style>
-</head>
-<body>
+  
+.intro-text {
+  text-align: center;
+  padding: 3em 1em 2em;
+}
+.intro-text h2 {
+  font-size: 2.4em;
+  margin-bottom: 0.5em;
+  color: #2a2a2a;
+}
+.intro-text p {
+  font-size: 1.2em;
+  color: #444;
+  font-weight: 300;
+}
+body.dark .intro-text h2,
+body.dark .intro-text p {
+  color: #ddd;
+}
+
+header {
+  opacity: 0;
+  animation: fadeHeader 2s ease forwards;
+}
+@keyframes fadeHeader {
+  to { opacity: 1; }
+}
+
+/* Mobile Menü */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    display: none;
+  }
+  nav.active {
+    display: flex;
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2a2a2a;
+  }
+}
+.burger {
+  display: none;
+}
+
+.menutext {
+  font-size: 0.95em;
+  color: #777;
+  margin-top: 1em;
+}
+body.dark .menutext {
+  color: #aaa;
+}
+</style>
+<meta content="Raphael Kichtan – Projekte &amp; Bewusstsein" property="og:title"/><meta content="Forschung, Quantenphysik &amp; persönliche Erkenntnisse – entdecke die Arbeiten von Raphael Kichtan." property="og:description"/><meta content="https://raphael-kichtan.github.io/headerbild.PNG" property="og:image"/><meta content="https://raphael-kichtan.github.io" property="og:url"/></head>
+<body><div class="burger" onclick="toggleNav()">☰</div>
 <div class="toggle-container">
 <span id="theme-icon">☀️</span>
 <button onclick="toggleMode()">Mode</button>
@@ -136,11 +194,8 @@
 <a data-de="Über mich" data-en="About me" href="about.html">Über mich</a>
 <a data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
 </nav>
-<div class="main">
-<p data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren." data-en="Use the menu above to learn more about me and my work." id="menuText">
-       Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.
-    </p>
-<img alt="Einleitungsbild" class="parallax-image" src="einleitungsbild.jpg"/>
+<div class="main"><div class="intro-text"><h2>Willkommen auf meiner Website</h2><p>Forschung. Bewusstsein. Perspektivwechsel.</p><p class="menutext" data-de="Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren." data-en="Use the menu above to learn more about me and my work.">Nutze das Menü oben, um mehr über mich und meine Arbeit zu erfahren.</p></div>
+<img alt="Einleitungsbild" class="parallax-image" loading="lazy" src="einleitungsbild.jpg"/>
 </div>
 <footer>
     © 2025 Raphael Kichtan
@@ -190,5 +245,10 @@
       img.style.transform = "translateY(" + offset * 0.1 + "px)";
     }
   });
+</script><script>
+function toggleNav() {
+  const nav = document.querySelector("nav");
+  nav.classList.toggle("active");
+}
 </script></body>
 </html>
