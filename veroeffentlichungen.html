@@ -274,34 +274,82 @@ nav::-webkit-scrollbar {
 body.dark .main {
   background: #0e0e0e;
 }
+
+/* RK Kreis, Schalter im Header */
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  display: none;
+  transition: background 0.3s;
+}
+#topBtn:hover {
+  background-color: #666;
+}
+
+/* Fade-Animation für Begrüßungstext */
+.fadeSlide {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 1.5s ease-out forwards;
+}
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Linkfarbe neutral */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Darkmode Hintergrund Fix */
+body.dark .main {
+  background: transparent !important;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script></head>
 <body>
-<div class="toggle-container">
+
+<header id="vanta-bg"><div style="position: absolute; top: 15px; left: 15px; background: #2c2c2c; color: #f0f0f0; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: Poppins; box-shadow: 0 0 8px rgba(0,0,0,0.3); z-index: 2;">RK</div><div class="toggle-container" style="position: absolute; top: 10px; right: 10px; z-index: 1000; display: flex; align-items: center; gap: 5px;">
 <span id="theme-icon">☀️</span>
 <button onclick="toggleMode()">Mode</button>
 <button class="active" id="btn-de" onclick="switchLang('de')">DE</button>
 <button id="btn-en" onclick="switchLang('en')">EN</button>
 </div>
-<header id="vanta-bg">
 <h1>Raphael Kichtan</h1>
-</header>
+<p class="fadeSlide" data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind." data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me." id="headerText">Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.</p></header>
 <nav>
-<a data-de="Startseite" data-en="Home" href="index.html">Startseite</a>
-<a data-de="Über mich" data-en="About me" href="about.html">Über mich</a>
+<a class="" data-de="Startseite" data-en="Home" href="index.html">Startseite</a>
+<a class="" data-de="Über mich" data-en="About me" href="about.html">Über mich</a>
 <a class="active" data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
 </nav>
 <div class="main">
-<div class="pub-box   f a d e - i n">
+<div class="pub-box f a d e - i n">
 <h2 data-de="Yang-Mills und Raumantworten (deutsche Version)" data-en="Yang-Mills and Space Response (German version)">Yang-Mills und Raumantworten (deutsche Version)</h2>
 <p data-de="In dieser Veröffentlichung analysiere ich reale Quantenmessdaten und zeige, wie eine empirische Raumgleichung die Masse-Lücke und die Yang-Mills-Feldstruktur erklärt." data-en="This publication analyzes real quantum measurement data and shows how an empirical space equation explains the mass gap and Yang-Mills field structure.">
          In dieser Veröffentlichung analysiere ich reale Quantenmessdaten und zeige, wie eine empirische Raumgleichung die Masse-Lücke und die Yang-Mills-Feldstruktur erklärt.
       </p>
-<a data-de="PDF herunterladen" data-en="Download PDF" download="Yang-Mills_und_Raumantworten_PDF.pdf" href="Yang-Mills_und_Raumantworten_PDF.pdf">PDF herunterladen</a>
-<a href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546?file=54623771" target="_blank">Figshare</a>
-<a href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">Academia.edu</a>
+<a class="" data-de="PDF herunterladen" data-en="Download PDF" download="Yang-Mills_und_Raumantworten_PDF.pdf" href="Yang-Mills_und_Raumantworten_PDF.pdf">PDF herunterladen</a>
+<a class="" href="https://figshare.com/articles/dataset/Yang-Mills_und_Raumantworten/29093546?file=54623771" target="_blank">Figshare</a>
+<a class="" href="https://www.academia.edu/129411205/Yang_Mills_und_Raumantworten_PDF" target="_blank">Academia.edu</a>
 </div>
-<div class="pub-box   f a d e - i n"><h2 data-de="Das Unsichtbare Denken (deutsche Version)" data-en="The Invisible Thinking (German version)">Das Unsichtbare Denken (deutsche Version)</h2><p data-de="Das Unsichtbare Denken ist eine Reise in die Tiefen von Bewusstsein, Wahrnehmung und Wirklichkeit. Raphael Kichtan verbindet Wissenschaft, Philosophie, persönliche Erfahrung und erzählerische Elemente zu einer Erkundung des Unsichtbaren – jener Bereiche, die sich unserem rationalen Verstand entziehen und doch unser Leben prägen.&lt;br&gt;&lt;br&gt;Dieses Buch ist keine Sammlung fertiger Antworten. Es ist eine Einladung: Zum Fragen. Zum Staunen. Zum Entdecken.&lt;br&gt;&lt;br&gt;Der Stil wechselt und vermischt sich bewusst – zwischen philosophischer Reflexion, wissenschaftlicher Inspiration und erzählerischen Momenten. So entsteht ein vielschichtiges Erleben, das den Leser nicht nur informiert, sondern auch fühlen lässt.&lt;br&gt;&lt;br&gt;Wer bereit ist, die Grenzen des Wissens zu überschreiten und sich auf das Abenteuer des Unbekannten einzulassen, wird hier Inspiration finden – und vielleicht einen neuen Blick auf sich selbst und die Welt.&lt;br&gt;&lt;br&gt;Für das Kind in uns, das nicht aufhört, an Wunder zu glauben." data-en="The Invisible Thinking is a journey into the depths of consciousness, perception and reality. Raphael Kichtan blends science, philosophy, personal experience and storytelling to explore the unseen – those areas that elude rational understanding yet shape our lives.&lt;br&gt;&lt;br&gt;This book is not a collection of ready-made answers. It is an invitation: to question, to wonder, to explore.&lt;br&gt;&lt;br&gt;The style deliberately shifts – between philosophical reflection, scientific inspiration and narrative moments. This creates a multi-layered experience that not only informs, but moves the reader.&lt;br&gt;&lt;br&gt;Those willing to cross the boundaries of knowledge and enter the unknown may find inspiration here – and perhaps a new way of seeing themselves and the world.&lt;br&gt;&lt;br&gt;For the child within us that never stops believing in wonder.">Das Unsichtbare Denken ist eine Reise in die Tiefen von Bewusstsein, Wahrnehmung und Wirklichkeit. Raphael Kichtan verbindet Wissenschaft, Philosophie, persönliche Erfahrung und erzählerische Elemente zu einer Erkundung des Unsichtbaren – jener Bereiche, die sich unserem rationalen Verstand entziehen und doch unser Leben prägen.&lt;br&gt;&lt;br&gt;Dieses Buch ist keine Sammlung fertiger Antworten. Es ist eine Einladung: Zum Fragen. Zum Staunen. Zum Entdecken.&lt;br&gt;&lt;br&gt;Der Stil wechselt und vermischt sich bewusst – zwischen philosophischer Reflexion, wissenschaftlicher Inspiration und erzählerischen Momenten. So entsteht ein vielschichtiges Erleben, das den Leser nicht nur informiert, sondern auch fühlen lässt.&lt;br&gt;&lt;br&gt;Wer bereit ist, die Grenzen des Wissens zu überschreiten und sich auf das Abenteuer des Unbekannten einzulassen, wird hier Inspiration finden – und vielleicht einen neuen Blick auf sich selbst und die Welt.&lt;br&gt;&lt;br&gt;Für das Kind in uns, das nicht aufhört, an Wunder zu glauben.</p><a data-de="Zum Buch auf Amazon" data-en="View on Amazon" href="https://amzn.eu/d/62SlPFD" target="_blank">Zum Buch auf Amazon</a></div></div>
+<div class="pub-box f a d e - i n"><h2 data-de="Das Unsichtbare Denken (deutsche Version)" data-en="The Invisible Thinking (German version)">Das Unsichtbare Denken (deutsche Version)</h2><p data-de="Das Unsichtbare Denken ist eine Reise in die Tiefen von Bewusstsein, Wahrnehmung und Wirklichkeit. Raphael Kichtan verbindet Wissenschaft, Philosophie, persönliche Erfahrung und erzählerische Elemente zu einer Erkundung des Unsichtbaren – jener Bereiche, die sich unserem rationalen Verstand entziehen und doch unser Leben prägen.&lt;br&gt;&lt;br&gt;Dieses Buch ist keine Sammlung fertiger Antworten. Es ist eine Einladung: Zum Fragen. Zum Staunen. Zum Entdecken.&lt;br&gt;&lt;br&gt;Der Stil wechselt und vermischt sich bewusst – zwischen philosophischer Reflexion, wissenschaftlicher Inspiration und erzählerischen Momenten. So entsteht ein vielschichtiges Erleben, das den Leser nicht nur informiert, sondern auch fühlen lässt.&lt;br&gt;&lt;br&gt;Wer bereit ist, die Grenzen des Wissens zu überschreiten und sich auf das Abenteuer des Unbekannten einzulassen, wird hier Inspiration finden – und vielleicht einen neuen Blick auf sich selbst und die Welt.&lt;br&gt;&lt;br&gt;Für das Kind in uns, das nicht aufhört, an Wunder zu glauben." data-en="The Invisible Thinking is a journey into the depths of consciousness, perception and reality. Raphael Kichtan blends science, philosophy, personal experience and storytelling to explore the unseen – those areas that elude rational understanding yet shape our lives.&lt;br&gt;&lt;br&gt;This book is not a collection of ready-made answers. It is an invitation: to question, to wonder, to explore.&lt;br&gt;&lt;br&gt;The style deliberately shifts – between philosophical reflection, scientific inspiration and narrative moments. This creates a multi-layered experience that not only informs, but moves the reader.&lt;br&gt;&lt;br&gt;Those willing to cross the boundaries of knowledge and enter the unknown may find inspiration here – and perhaps a new way of seeing themselves and the world.&lt;br&gt;&lt;br&gt;For the child within us that never stops believing in wonder.">Das Unsichtbare Denken ist eine Reise in die Tiefen von Bewusstsein, Wahrnehmung und Wirklichkeit. Raphael Kichtan verbindet Wissenschaft, Philosophie, persönliche Erfahrung und erzählerische Elemente zu einer Erkundung des Unsichtbaren – jener Bereiche, die sich unserem rationalen Verstand entziehen und doch unser Leben prägen.&lt;br&gt;&lt;br&gt;Dieses Buch ist keine Sammlung fertiger Antworten. Es ist eine Einladung: Zum Fragen. Zum Staunen. Zum Entdecken.&lt;br&gt;&lt;br&gt;Der Stil wechselt und vermischt sich bewusst – zwischen philosophischer Reflexion, wissenschaftlicher Inspiration und erzählerischen Momenten. So entsteht ein vielschichtiges Erleben, das den Leser nicht nur informiert, sondern auch fühlen lässt.&lt;br&gt;&lt;br&gt;Wer bereit ist, die Grenzen des Wissens zu überschreiten und sich auf das Abenteuer des Unbekannten einzulassen, wird hier Inspiration finden – und vielleicht einen neuen Blick auf sich selbst und die Welt.&lt;br&gt;&lt;br&gt;Für das Kind in uns, das nicht aufhört, an Wunder zu glauben.</p><a class="" data-de="Zum Buch auf Amazon" data-en="View on Amazon" href="https://amzn.eu/d/62SlPFD" target="_blank">Zum Buch auf Amazon</a></div></div>
 <footer>
     © 2025 Raphael Kichtan
   </footer>
@@ -373,5 +421,17 @@ VANTA.NET({
   maxDistance: 20.0,
   spacing: 15.0
 });
+</script><button id="topBtn">↑</button><script>
+let topBtn = document.getElementById("topBtn");
+window.onscroll = function() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+};
+topBtn.onclick = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 </script></body>
 </html>
