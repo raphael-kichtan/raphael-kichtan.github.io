@@ -39,18 +39,22 @@
       margin: 0;
       font-size: 2.8rem;
     }
+    nav {
       background: #ffffff;
       display: flex;
       justify-content: center;
       padding: 0.5rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    nav a {
       margin: 0 1rem;
       color: #2a5298;
       text-decoration: none;
       font-weight: bold;
       position: relative;
     }
+    nav a.active,
+    nav a:hover {
       border-bottom: 2px solid #2a5298;
     }
     .main {
@@ -179,12 +183,14 @@ footer {
   z-index: 2;
 }
 
+nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem 0.5rem;
 }
+nav a {
   font-size: 1rem;
   color: #f0f0f0;
   background: #2c2c2c;
@@ -196,20 +202,26 @@ footer {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   white-space: nowrap;
 }
+nav a:hover {
   background: #444;
   transform: scale(1.05);
 }
+nav a.active {
   background: #555;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
+body.dark nav a {
   background: #2c2c2c;
   color: #f0f0f0;
 }
+body.dark nav a:hover {
   background: #444;
 }
+body.dark nav a.active {
   background: #555;
 }
 
+nav {
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
@@ -317,10 +329,14 @@ body.dark .main {
   text-align: center;
 }
 
+nav a {
   animation: fadeSlide 1s ease-out forwards;
   opacity: 0;
   transform: translateY(10px);
 }
+nav a:nth-child(1) { animation-delay: 0.2s; }
+nav a:nth-child(2) { animation-delay: 0.4s; }
+nav a:nth-child(3) { animation-delay: 0.6s; }
 
 @keyframes fadeSlide {
   to {
@@ -330,45 +346,11 @@ body.dark .main {
 }
 
 /* Darkmode-Fix fürs Menü */
+body.dark nav {
   background: transparent;
 }
 
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding: 1rem 0.5rem;
-  gap: 1rem;
-}
-nav::-webkit-scrollbar {
-  display: none;
-}
-  font-size: 1rem;
-  color: #f0f0f0;
-  background: #2c2c2c;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  padding: 0.5rem 1.2rem;
-  transition: background 0.3s, transform 0.2s;
-  white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-  background: #444;
-  transform: scale(1.05);
-}
-  background: #555;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-  background: #2c2c2c;
-  color: #f0f0f0;
-}
-  background: #444;
-}
-  background: #555;
-}
 nav {
-  background: transparent;
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
@@ -381,7 +363,7 @@ nav::-webkit-scrollbar {
 }
 nav a {
   font-size: 1rem;
-  color: white;
+  color: #f0f0f0;
   background: #2c2c2c;
   text-decoration: none;
   font-weight: bold;
@@ -390,13 +372,7 @@ nav a {
   transition: background 0.3s, transform 0.2s;
   white-space: nowrap;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  animation: fadeSlide 1s ease-out forwards;
-  opacity: 0;
-  transform: translateY(10px);
 }
-nav a:nth-child(1) { animation-delay: 0.2s; }
-nav a:nth-child(2) { animation-delay: 0.4s; }
-nav a:nth-child(3) { animation-delay: 0.6s; }
 nav a:hover {
   background: #444;
   transform: scale(1.05);
@@ -415,6 +391,11 @@ body.dark nav a:hover {
 body.dark nav a.active {
   background: #555;
 }
+
+nav a {
+  min-width: 120px;
+  text-align: center;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script></head>
 <body>
@@ -426,7 +407,7 @@ body.dark nav a.active {
 </div>
 <h1 class="fadeSlide">Raphael Kichtan</h1>
 <p class="fadeSlide" data-de="Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind." data-en="Welcome to my project page. Here I share my work – whether scientific theories, books or new ideas that matter to me." id="headerText">Willkommen auf meiner Projektseite. Hier teile ich meine Arbeit – ob wissenschaftliche Theorien, Bücher oder neue Ideen, die mir wichtig sind.</p></header>
-<nav>
+<nav style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; padding: 1rem 0.5rem;">
 <a class="" data-de="Startseite" data-en="Home" href="index.html">Startseite</a>
 <a class="" data-de="Über mich" data-en="About me" href="about.html">Über mich</a>
 <a class="active" data-de="Veröffentlichungen" data-en="Publications" href="veroeffentlichungen.html">Veröffentlichungen</a>
