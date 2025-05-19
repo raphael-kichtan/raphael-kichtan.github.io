@@ -349,6 +349,48 @@ nav a:nth-child(3) { animation-delay: 0.6s; }
 body.dark nav {
   background: transparent;
 }
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 1rem 0.5rem;
+  gap: 1rem;
+}
+nav::-webkit-scrollbar {
+  display: none;
+}
+nav a {
+  font-size: 1rem;
+  color: #f0f0f0;
+  background: #2c2c2c;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  transition: background 0.3s, transform 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+nav a:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+nav a.active {
+  background: #555;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+body.dark nav a {
+  background: #2c2c2c;
+  color: #f0f0f0;
+}
+body.dark nav a:hover {
+  background: #444;
+}
+body.dark nav a.active {
+  background: #555;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script></head>
 <body>
